@@ -8,6 +8,9 @@
 
 		<script type="text/javascript" src="/js/jquery.min.js"></script>
 		<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="/js/moment.min.js"></script>
+
+		<script type="text/javascript" src="/js/functions.js"></script>
 
 		<link rel="shortcut icon" href="/images/site/favicon.ico" type="image/icon">
 		<link rel="icon" href="/images/site/favicon.ico">
@@ -45,10 +48,13 @@
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Power <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
 									<li>
-										<a href="?action=shutown">Shutdown</a>
+										<a href="?action=shutown" class="confirm">Shutdown</a>
 									</li>
 									<li>
-										<a href="?action=reboot">Reboot</a>
+										<a href="?action=reboot" class="confirm" >Reboot</a>
+									</li>
+									<li>
+										<a href="javascript:sync_time()">Sync Time</a>
 									</li>
 								</ul>
 							</li>

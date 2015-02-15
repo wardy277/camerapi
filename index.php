@@ -28,7 +28,7 @@ ob_start();
 
 <?php foreach($dir->getVideos() as $video){ ?>
 	
-	<div class="col-lg-3 col-md-6 col-sm-12 col-xs-12">
+	<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
 		<video src="<?=$video->getSrc();?>" controls width = "100%"></video>
 		<div class="text-center">
 			<a href="<?=$video->getSrc()?>"><?=$video->getName()?></a>

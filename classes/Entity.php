@@ -15,10 +15,10 @@ class Entity {
 	* Super magic functyion which is called when a fucntion is not found
 	* @param string field - the field we are looking for (coudl also be a functionname)
 	*/ 
-	public function __call($field){
+	public function __call($field, $arguments){
 		 
-		if(substr($field,0,3) == 'get'){ 
-			$field = substr($name,3); 
+		if(substr($field,0,3) == 'get'){
+			$field = substr($field,3);
 			return $this->getAttr($field); 
 		}
 		else{
@@ -31,7 +31,7 @@ class Entity {
 	* Sub magic function, behaves the same as jQuery's attr fucntion
 	* @TODO: impliment daving of attr (database?)
 	*/
-	public function getAttr($field, $value){
+	public function getAttr($field, $value=false){
 		//de camel case
 		$field = $this->deCamel($field);
 
@@ -46,7 +46,7 @@ class Entity {
 	* Coverts a camel case string into an undescore string
 	*/
 	public static function deCamel($string){
-		$string = preg_replace(‘/(?<=\\w)(?=[A-Z])/',"_$1", $string);
+		$string = preg_replace('/(?<=\\w)(?=[A-Z])/',"_$1", $string);
 		$string = strtolower($string);
 
 		return $string;

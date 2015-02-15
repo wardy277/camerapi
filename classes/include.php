@@ -1,5 +1,4 @@
 <?php
-
 //allow cron through shell to work withough login
 if(substr($_SERVER['SHELL'], 0, 4) == '/bin' && !empty($argv)){
 	

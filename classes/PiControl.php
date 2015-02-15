@@ -3,6 +3,7 @@
 class PiControl {
 	
 	public function processPost(){
+
 		if( $_GET['action'] == "shutdown" ) {
 			$test = shell_exec("touch /tmp/shutdown");
 			echo '<pre>Shutting down...</pre>';

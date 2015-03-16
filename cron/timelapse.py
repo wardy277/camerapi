@@ -33,13 +33,13 @@ if __name__ == '__main__':
 
 	sunset = ephem.localtime(sunset) + time_after
 
-	video_length = (sunset - sunrise).total_seconds() * 1000
+	video_length = ((sunset - sunrise).total_seconds() + 3600) * 1000
 
 	total_frames = 60 * 25
 
 	frame_time = video_length / total_frames
 
-	RECORD_COMMAND = "raspiyuv -h 1072 -w 1920 -t %(length)d -tl %(slice)d -o - | rpi-encode-yuv > %(file)s"
+	RECORD_COMMAND = "raspiyuv -h 1072 -w 1920 -drc high --rotation 180 -t %(length)d -tl %(slice)d -o - | rpi-encode-yuv > %(file)s"
 
 	print(RECORD_COMMAND % {"length": video_length, "slice": frame_time, "file": H264_FILENAME})
 
